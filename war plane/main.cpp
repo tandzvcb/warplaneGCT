@@ -3,8 +3,27 @@
 #include "MainObject.h"
 #include "ThreatObject.h"
 #include "ExplosionObject.h"
+#include "TextObject.h"
 
 bool init();  // Thiet lap cua so man hinh
+TTF_Font *g_fond_text = NULL;
+
+void saveHighScore(int score) {
+	std::ofstream outfile("best_score.txt");
+	outfile << score;
+	outfile.close();
+}
+
+int loadHighScore() {
+	std::ifstream infile("best_score.txt");
+	int highscore;
+	if (infile.is_open()) {
+		infile >> highscore;
+		infile.close();
+		return highscore;
+	}
+	return 0; 
+}
 
 int  main(int arc, char* argv[])
 {
@@ -65,10 +84,18 @@ int  main(int arc, char* argv[])
 		}
 	
 	}
-
-	
 	bool is_quit = false;
 	int speed_screen = 0;
+
+	int ret_menu = SDLCommonFunc::ShowMenu(gScreen, g_fond_text);
+	if(ret_menu == 1)is_quit = true;
+
+	
+	// Create point_game
+	TextObject point_game;
+	point_game.SetColor(TextObject::BLACK_TEXT);
+	point_game.SetRect(550, 10);
+	int point = 0;
 
 	while(!is_quit)			// cap nhap man hình
 	{
@@ -109,7 +136,7 @@ int  main(int arc, char* argv[])
 				p_threat->Show(gScreen);
 				if(p_threat->GetRect().x > plane_object.GetRect().x)
 				{
-					//p_threat->MakeBullet(gScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
+					p_threat->MakeBullet(gScreen, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 
 					// xử lý va chạm giữa main và bullet_threat 
@@ -135,6 +162,7 @@ int  main(int arc, char* argv[])
 
 
 							}
+							if(point > loadHighScore())saveHighScore(point);
 
 							if(MessageBox(NULL, L"GAME OVER!", L"Info", MB_OK) == IDOK)
 							{
@@ -189,6 +217,7 @@ int  main(int arc, char* argv[])
 							}
 						}
 
+						if(point > loadHighScore())saveHighScore(point);
 
 						if(MessageBox(NULL, L"GAME OVER!", L"Info", MB_OK) == IDOK)
 						{
@@ -213,6 +242,7 @@ int  main(int arc, char* argv[])
 								int x = (p_threat->GetRect().x + p_threat->GetRect().w * 0.5) - EXPLOSION_WIDTH * 0.5;
 								int y = (p_threat->GetRect().y + p_threat->GetRect().h * 0.5) - EXPLOSION_HEIGHT * 0.5;
 
+								point += 10;
 								exp.set_frame(ex_t);
 								exp.SetRect(x, y);
 								exp.ShowEx(gScreen);
@@ -228,6 +258,14 @@ int  main(int arc, char* argv[])
 				}
 			}
 		}
+		// Show point_game
+		std::string val_str_point = std::to_string(point);
+		std::string strPoint("Score: ");
+		strPoint += val_str_point;
+
+		point_game.SetText(strPoint);
+		point_game.CreateText(g_fond_text, gScreen);
+
 
 		// Update screen
 		if(SDL_Flip(gScreen) == -1)return -1;			// hiển thị
@@ -242,15 +280,29 @@ int  main(int arc, char* argv[])
 
 bool init()
 {
-	if(SDL_Init(SDL_INIT_EVERYTHING) == -1)					// khởi tạo các thành phần của SDL
+	if(SDL_Init(SDL_INIT_EVERYTHING) == -1)					// khoi tao cac thanh phan cua SDL
 	{
 		return false;
 	}
-	gScreen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT,SCREEN_BPP, SDL_SWSURFACE);						// thiết lập cửa sổ video
+	gScreen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT,SCREEN_BPP, SDL_SWSURFACE);						// thiet lap cua so video
 	if(gScreen == NULL)
 	{
 		return false;
 	}
+
+	if(TTF_Init() == -1)
+	{
+		return false;
+	}
+
+	g_fond_text = TTF_OpenFont("ttf/dlxfont.ttf",20 );
+	if(g_fond_text == NULL)
+	{
+		return false;
+
+	}
+
+	
 	return true;
 }
 

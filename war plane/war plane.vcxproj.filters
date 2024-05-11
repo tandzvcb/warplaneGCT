@@ -36,6 +36,9 @@
     <ClCompile Include="ExplosionObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TextObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="thuvien.h">
@@ -56,5 +59,11 @@
     <ClInclude Include="ExplosionObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TextObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="best_score.txt" />
   </ItemGroup>
 </Project>

@@ -1,16 +1,9 @@
-﻿Build started 4/13/2024 9:57:13 PM.
+﻿Build started 5/11/2024 11:04:51 PM.
      1>Project "C:\Users\LAPTOP\Desktop\game\war plane\war plane.vcxproj" on node 2 (Build target(s)).
      1>Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\LAPTOP\Desktop\game\Debug\war plane.exe" /INCREMENTAL /NOLOGO SDL.lib SDLMain.lib SDL_image.lib SDL_mixer.lib SDL_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\LAPTOP\Desktop\game\Debug\war plane.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\LAPTOP\Desktop\game\Debug\war plane.lib" /MACHINE:X86 Debug\BulletObject.obj
-         Debug\BaseObject.obj
-         Debug\ExplosionObject.obj
-         Debug\MainObject.obj
-         Debug\main.obj
-         Debug\ThreatObject.obj
-         Debug\thuvien.obj
          war plane.vcxproj -> C:\Users\LAPTOP\Desktop\game\Debug\war plane.exe
      1>Done Building Project "C:\Users\LAPTOP\Desktop\game\war plane\war plane.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.16
+Time Elapsed 00:00:00.05
