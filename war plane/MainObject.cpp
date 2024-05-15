@@ -8,12 +8,12 @@ MainObject::MainObject()		//construtor
 	rect_.y = 0;
 	rect_.w = WIDTH_MAIN_OBJECT;
 	rect_.h = HEIGHT_MAIN_OBJECT;
-	x_val_ = 0;
+	x_val_ = 0; //vận tốc ban đầu
 	y_val_ = 0;
 	
 }
 
-MainObject::~MainObject()
+MainObject::~MainObject() // giải phóng bề mặt nếu bề mặt tồn tại.
 {
 	if(p_object_ != NULL)SDL_FreeSurface(p_object_);
 }
@@ -22,10 +22,11 @@ void MainObject::HandleInputAction(SDL_Event events)
 {
 	if(events.type == SDL_KEYDOWN)
 	{
-		switch(events.key.keysym.sym)
+		switch(events.key.keysym.sym)//một phím được nhấn, vị trí hoặc vận tốc của đối tượng chính sẽ được điều chỉnh tương ứng.
 		{
-		case SDLK_UP:
-			y_val_ -= HEIGHT_MAIN_OBJECT / 8;
+		case SDLK_UP:                            //Nếu phím được nhấn là phím mũi tên lên, vận tốc theo chiều y (y_val_) của đối tượng chính sẽ giảm, di chuyển đối tượng lên trên màn hình.
+
+			y_val_ -= HEIGHT_MAIN_OBJECT / 8;  
 
 			break;
 		case SDLK_DOWN:
@@ -41,7 +42,8 @@ void MainObject::HandleInputAction(SDL_Event events)
 		
 		}
 	}
-	else if(events.type == SDL_KEYUP)
+	else if(events.type == SDL_KEYUP) 
+
 	{
 		switch(events.key.keysym.sym)
 		{
@@ -52,7 +54,7 @@ void MainObject::HandleInputAction(SDL_Event events)
 		}
 	}
 	if(events.type == SDL_MOUSEBUTTONDOWN){
-		if(events.button.button == SDL_BUTTON_LEFT){
+		if(events.button.button == SDL_BUTTON_LEFT){ //Nếu nút chuột trái được nhấn CreateBullet() được gọi để tạo ra một đạn mới cho đối tượng chính.
 			CreateBullet();
 		}
 	}
@@ -62,11 +64,11 @@ void MainObject::CreateBullet()
 	BulletObject* p_bullet = new BulletObject();
 	p_bullet->SetWidthHeight(WIDTH_BULLET, WIDTH_BULLET);
 	p_bullet->LoadImg("img/bullet_main.png");
-	p_bullet->set_type(BulletObject::BULLET_MAIN);
+	p_bullet->set_type(BulletObject::BULLET_MAIN); // Loại đạn được đặt là loại đạn chính
 
-	p_bullet->SetRect(this->rect_.x + this->rect_.w - 30 , this->rect_.y + this->rect_.h * 0.8);
+	p_bullet->SetRect(this->rect_.x + this->rect_.w - 30 , this->rect_.y + this->rect_.h * 0.8);//Vị trí ban đầu của đạn được đặt tại phía trên bên phải của đối tượng chính.
 	p_bullet->set_is_move(true);
-	p_bullet->set_x_val(8);
+	p_bullet->set_x_val(1);
 
 	p_bullet_list.push_back(p_bullet);
 	

@@ -1,11 +1,11 @@
-
+﻿
 #include "BulletObject.h"
 
 BulletObject::BulletObject()
 {
-	rect_.x = 0;
+	rect_.x = 0;   //đặt vị trí ban đầu của đạn tại góc trên bên trái.
 	rect_.y = 0;
-	x_val_ = 0;
+	x_val_ = 0;  //xác định vận tốc di chuyển của đạn theo phương x và y.
 	y_val_ = 0;
 	is_move_ = false;
 	bullet_type_= NONE;
@@ -31,7 +31,9 @@ void BulletObject::HandleMove(const int& x_border, const int& y_border )
 	}
 }
 
-void BulletObject::HandleMoveRightToLeft()
+
+
+void BulletObject::HandleMoveRightToLeft()  // xử lý di chuyển của đạn theo hướng từ phải sang trái ( chưa dùng , để mở rộng )
 {
 	rect_.x -= x_val_;
 

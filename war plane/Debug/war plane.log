@@ -1,9 +1,35 @@
-﻿Build started 5/11/2024 11:04:51 PM.
+﻿Build started 5/15/2024 11:34:41 AM.
      1>Project "C:\Users\LAPTOP\Desktop\game\war plane\war plane.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         war plane.vcxproj -> C:\Users\LAPTOP\Desktop\game\Debug\war plane.exe
-     1>Done Building Project "C:\Users\LAPTOP\Desktop\game\war plane\war plane.vcxproj" (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ThreatObject.cpp main.cpp
+         main.cpp
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(75): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(146): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(155): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(156): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(188): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(189): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(206): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(207): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(236): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(243): error C2065: 'c' : undeclared identifier
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(243): error C2143: syntax error : missing ';' before '{'
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(244): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(245): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(248): error C2065: 'ex_t' : undeclared identifier
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(280): error C2065: 'c' : undeclared identifier
+     1>c:\users\laptop\desktop\game\war plane\main.cpp(280): error C2143: syntax error : missing ';' before 'return'
+         ThreatObject.cpp
+     1>c:\users\laptop\desktop\game\war plane\threatobject.cpp(30): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\threatobject.cpp(35): error C2065: 'c' : undeclared identifier
+     1>c:\users\laptop\desktop\game\war plane\threatobject.cpp(35): error C2143: syntax error : missing ';' before '}'
+     1>c:\users\laptop\desktop\game\war plane\threatobject.cpp(48): warning C4244: 'argument' : conversion from 'double' to 'const int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\threatobject.cpp(59): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\laptop\desktop\game\war plane\threatobject.cpp(72): warning C4244: 'argument' : conversion from 'double' to 'const int', possible loss of data
+     1>c:\users\laptop\desktop\game\war plane\threatobject.cpp(86): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         Generating Code...
+     1>Done Building Project "C:\Users\LAPTOP\Desktop\game\war plane\war plane.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.05
+Time Elapsed 00:00:01.50
